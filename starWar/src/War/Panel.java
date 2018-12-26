@@ -115,10 +115,10 @@ public class Panel extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			
 			myBuffer.setColor(Color.red);
-			myBuffer.setFont(new Font("Arial", Font.BOLD, 80));
+			myBuffer.setFont(new Font("Serif", Font.BOLD, 80));
 			myBuffer.drawString("Space", 270, 120);
 			myBuffer.drawString("Monster", 200, 200);
-			myBuffer.setFont(new Font("Arial Black", Font.BOLD, 40));
+			myBuffer.setFont(new Font("Serif Black", Font.BOLD, 40));
 			
 			repaint();
 		}
@@ -255,7 +255,7 @@ public class Panel extends JPanel{
 			player.draw(myBuffer);
 			
 			myBuffer.setColor(Color.white);
-			myBuffer.setFont(new Font("Arial", Font.BOLD, 30));
+			myBuffer.setFont(new Font("Serif", Font.BOLD, 30));
 			myBuffer.drawString("Source: " + hits, FRAME - 300, 25);
 //			if(!backgroundSound.getStatus().equals(AudioPlayer.Status.START)) {
 //				backgroundSound.play();
@@ -278,7 +278,7 @@ public class Panel extends JPanel{
 			myBuffer.drawImage(winBackGround.getImage(), 0, -50, FRAME, FRAME + 50, null);
 			changeStart = true;
 			myBuffer.setColor(Color.BLACK);
-			myBuffer.setFont(new Font("Arial", Font.BOLD, 70));
+			myBuffer.setFont(new Font("Serif", Font.BOLD, 70));
 			myBuffer.drawString("恭喜你贏了！", 100, 150);
 			myBuffer.drawString("按Enter回到主畫面", 100, 500);
 			
@@ -301,8 +301,8 @@ public class Panel extends JPanel{
 			myBuffer.drawImage(gameoverBackGround.getImage(), 0, -50, FRAME, FRAME + 50, null);
 			changeStart = true;
 			myBuffer.setColor(Color.yellow);
-			myBuffer.setFont(new Font("Arial", Font.BOLD, 40));
-			myBuffer.drawString("按Enter回到主畫面", 100, 500);
+			myBuffer.setFont(new Font("Serif", Font.BOLD, 40));
+			myBuffer.drawString("按Enter", 100, 500);
 			
 			repaint();
 		}
