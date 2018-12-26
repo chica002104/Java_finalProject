@@ -18,9 +18,9 @@ import javax.swing.Timer;
 
 import org.magiclen.media.AudioPlayer;
 
-import Tank.GamePanel.KeyGame;
-import Tank.GamePanel.KeyHelp;
-import Tank.GamePanel.KeyHome;
+//import Tank.GamePanel.KeyGame;
+//import Tank.GamePanel.KeyHelp;
+//import Tank.GamePanel.KeyHome;
 
 
 
@@ -106,7 +106,7 @@ public class Panel extends JPanel{
 	}
 	
 	/**
-	 * 調整字體顏色
+	 * 隤踵摮��
 	 * @author hongminghong
 	 *
 	 */
@@ -115,7 +115,7 @@ public class Panel extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			
 			myBuffer.setColor(Color.red);
-			myBuffer.setFont(new Font("Avenir", Font.BOLD, 80));
+			myBuffer.setFont(new Font("Arial", Font.BOLD, 80));
 			myBuffer.drawString("Space", 270, 120);
 			myBuffer.drawString("Monster", 200, 200);
 			myBuffer.setFont(new Font("Arial Black", Font.BOLD, 40));
@@ -125,7 +125,7 @@ public class Panel extends JPanel{
 	}
 	
 	/**
-	 * 開始畫面
+	 * ����
 	 * @author hongminghong
 	 *
 	 */
@@ -139,8 +139,8 @@ public class Panel extends JPanel{
 			myBuffer.fillRect(338, 440, 814, 100);
 			myBuffer.setFont(new Font("Serif", Font.BOLD, 70));
 			myBuffer.setColor(Color.BLACK);
-			myBuffer.drawString("遊戲開始", 588, 230);
-			myBuffer.drawString("遊戲說明", 588, 500);
+			myBuffer.drawString("開始遊戲", 588, 230);
+			myBuffer.drawString("規則說明", 588, 500);
 			if (homeC == 0) {
 				myBuffer.setColor(Color.YELLOW);
 				myBuffer.setStroke(new BasicStroke(10.0f));
@@ -159,7 +159,7 @@ public class Panel extends JPanel{
 	}
 	
 	/**
-	 * 主遊戲畫面
+	 * 銝駁���
 	 * @author hongminghong
 	 *
 	 */
@@ -171,17 +171,17 @@ public class Panel extends JPanel{
 			myBuffer.fillRect(0, 0, FRAME, FRAME);
 			
 			//myBuffer.drawImage(background.getImage(), 0, 0, FRAME, FRAME, null);
-			playerMove(); // 玩家移動
-			monsterMove(); // 怪物移動
-			playerBulletMove(); // 玩家子彈移動
+			playerMove(); // �摰嗥宏���
+			monsterMove(); // �芰蝘餃��
+			playerBulletMove(); // �摰嗅��宏���
 
 			
 			for(int i = 0; i < monsterCountX; i++) {
 				for(int j = 0; j < monsterCountY; j++) {
-					isPlayerBulletHitMonster(monster[i][j]); // 玩家子彈與怪物碰撞
-					// 怪物是否發射子彈，並設定發射子彈位置
+					isPlayerBulletHitMonster(monster[i][j]); // �摰嗅����芰蝣唳��
+					// �芰���撠���蒂閮剖�撠���蔭
 					if(isMonsterFire()) {
-						monsterBullet[bulletCountMonster].setSeeable(false); // false會畫出來
+						monsterBullet[bulletCountMonster].setSeeable(false); // false���靘�
 						monsterBullet[bulletCountMonster].setX(monster[i][j].getX() + 10);
 						monsterBullet[bulletCountMonster].setY(monster[i][j].getY() + 5);
 						monsterBullet[bulletCountMonster].setBulletFly(type);
@@ -191,7 +191,7 @@ public class Panel extends JPanel{
 						}
 						bulletCountMonster++;
 					}
-					// 當玩家撞到怪物，停止音樂，改為死亡以及GameOver音樂
+					// ��摰嗆��芰嚗�迫�璅��甇颱滿隞亙�ameOver�璅�
 					if(BulletCollision.collide(player, monster[i][j])) {
 //						backgroundSound.pause();
 //						File soundFile = new File();
@@ -209,7 +209,7 @@ public class Panel extends JPanel{
 			for(int i = 0; i < bulletCountMax; i++) {
 				playerBullet[i].draw(myBuffer);
 				monsterBullet[i].draw(myBuffer);
-				// 撞到子彈的話
+				// ��摮��店
 				if(BulletCollision.collide(monsterBullet[i], player)) {
 //					backgroundSound.pause();
 //					File soundFile = new File();
@@ -223,7 +223,7 @@ public class Panel extends JPanel{
 				}
 				repaint();
 			}
-			// 達到一定分數就勝利
+			// ��銝�摰�撠勗�
 			if(hits >= (monsterCountX * monsterCountY)) {
 //				background.pause();
 //				File winSound = new File();
@@ -235,7 +235,7 @@ public class Panel extends JPanel{
 				win.start();
 				repaint();
 			}
-			// 往下到一定程度也輸
+			// 敺�銝銝�摰�漲銋撓
 			if(monsterButton >= 250) {
 //				background.pause();
 //				File killSound = new File();
@@ -265,7 +265,7 @@ public class Panel extends JPanel{
 	}
 	
 	/**
-	 * 遊戲獲勝畫面
+	 * ������
 	 * @author hongminghong
 	 *
 	 */
@@ -279,15 +279,15 @@ public class Panel extends JPanel{
 			changeStart = true;
 			myBuffer.setColor(Color.BLACK);
 			myBuffer.setFont(new Font("Arial", Font.BOLD, 70));
-			myBuffer.drawString("恭喜獲勝！", 100, 150);
-			myBuffer.drawString("按Enter重新遊戲", 100, 500);
+			myBuffer.drawString("恭喜你贏了！", 100, 150);
+			myBuffer.drawString("按Enter回到主畫面", 100, 500);
 			
 			repaint();
 		}
 	}
 	
 	/**
-	 * 遊戲失敗畫面
+	 * ��憭望��
 	 * @author hongminghong
 	 *
 	 */
@@ -302,14 +302,14 @@ public class Panel extends JPanel{
 			changeStart = true;
 			myBuffer.setColor(Color.yellow);
 			myBuffer.setFont(new Font("Arial", Font.BOLD, 40));
-			myBuffer.drawString("按Enter重新遊戲", 100, 500);
+			myBuffer.drawString("按Enter回到主畫面", 100, 500);
 			
 			repaint();
 		}
 	}
 	
 	/**
-	 * 怪物往下跑
+	 * �芰敺�銝��
 	 * @author hongminghong
 	 *
 	 */
@@ -322,7 +322,7 @@ public class Panel extends JPanel{
 		}
 	}
 	
-	// 控制飛機移動
+	// ��憌�宏���
 	private void playerMove() {
 		if(player_controltype == 1) {
 			player.setY(player.getY() - 5);
@@ -386,7 +386,7 @@ public class Panel extends JPanel{
 			playerBullet[i].move();
 			monsterBullet[i].move();
 			monsterBullet[i].move();
-			// 控制子彈斜著飛
+			// ��摮�����
 			if(playerBullet[i].getBulletFly() == 4) {
 				playerBullet[i].setX(playerBullet[i].getX() + 1);
 			}else if(playerBullet[i].getBulletFly() == 3) {
@@ -490,7 +490,7 @@ public class Panel extends JPanel{
 						bulletCountPlayer = 0;
 					}
 				}
-			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) { // 切換音樂、遊戲畫面
+			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) { // ���璅����
 				if(changeStart) {
 					//backgroundSound.pause();
 				}
@@ -524,7 +524,7 @@ public class Panel extends JPanel{
 						bulletCountPlayer = 0;
 					}
 				}
-			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) { // 切換音樂、遊戲畫面
+			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) { // ���璅����
 				if(changeStart) {
 					//backgroundSound.pause();
 				}
